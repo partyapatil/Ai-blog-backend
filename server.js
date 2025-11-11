@@ -5,8 +5,11 @@ require('dotenv').config();
 
 const app = express();
 app.use(cors({
-  origin: process.env.FRONTEND_URL || '*'
-}));app.use(express.json());
+origin: [
+    'https://ai-blog-frontend.vercel.app',
+    'https://ai-blog-frontend-partyapatil.vercel.app',
+    'http://localhost:3000'
+  ],}));app.use(express.json());
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
